@@ -1,0 +1,7153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="ja" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="format-detection" content="telephone=no"/>
+    <title>
+    
+    
+      Takudai Portal
+    
+    </title>
+
+
+    <script>
+      var waitingMessage = "お待ちください...";
+      var showBlockAlartMessage = "処理中です。しばらくお待ちください。";
+      var ajaxRequestError = "エラーが発生しました";
+      var addListenerError = "お使いのブラウザは対応していません。";
+      var noFoundResourceError = "存在しないファイルが指定されています。指定し直して下さい。";
+    </script>
+
+    <link rel="stylesheet" href="./css/timepicker.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="./css/jquery.ui.css" type="text/css" charset="utf-8" /> 
+    <link rel="stylesheet" href="./css/design01/common.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="./css/design01/theme.css" type="text/css" media="screen" charset="utf-8" />
+    <!--<link rel="stylesheet" href="./css/design01/common_en.css" type="text/css" media="screen" charset="utf-8" />-->
+    <!--<link rel="stylesheet" href="./css/design01/theme_en.css" type="text/css" media="screen" charset="utf-8" />-->
+    <link rel="stylesheet" href="./css/design01/common_print.css" type="text/css" media="print" charset="utf-8" />
+    <link rel="stylesheet" href="./css/design01/theme_print.css" type="text/css" media="print" charset="utf-8" />
+    <!--<link rel="stylesheet" href="./css/design01/theme_print_en.css" type="text/css" media="print" charset="utf-8" />-->
+    <link rel="shortcut icon" href="./img/design01/favicon.ico" />
+
+    <script language="JavaScript" type="text/JavaScript" src="./js/prototype.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/effects.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/main.js"></script>
+<!--[if IE]>
+    
+    <script language="JavaScript" type="text/JavaScript" src="./js/excanvas.js"></script>
+<![endif]-->
+
+    <script language="JavaScript" type="text/JavaScript" src="./js/jquery.js"></script>
+    <script type="text/javascript">jQuery.noConflict();var jq$ = jQuery;</script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/jquery.ui.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/date.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/design01/common.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/design01/theme.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/jquery.ui.datepicker-ja.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/jquery.timePicker.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/jquery.blockUI.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="./js/main_jq.js"></script>
+    <script language="javascript" type="text/javascript">
+    <!--
+      restoreScreenState('', '', '');
+      
+      
+    //-->
+    </script>
+
+  </head>
+
+<body>
+<div id="container">
+<div id="header">
+  
+  
+  <div id="head_top"></div>
+  <div id="head_left"></div>
+  <div id="head_right">
+    <div class="button">
+      
+      <input name="f_large" type="button" id="f_large" />
+      <input name="f_middle" type="button" id="f_middle" />
+      <input name="f_small" type="button" id="f_small" />
+      
+      
+        <span id="help_space" > </span>
+        
+        
+        
+        
+          <form name="logoutForm" method="post" action="/campusweb/logout.do">
+            <input name="logout" type="button" id="logout" onclick="return logoutCheck('ログアウトしますか？');" />
+          </form>
+        
+      
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div id="head_base"></div>
+  
+  <div id="top_menu">
+    <ul id="nav">
+
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <li ><a href="tab.do?buttonName=changeTab&menulv1=0000000001" ><span class="bkimg">HOME</span></a>
+      <ul id="menu_list">
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="メッセージ受信一覧" href="
+                top.do?buttonName=showContent&menulv1=0000000001&menuIndex=0&contenam=wbasmgjr&kjnmnNo=5
+                ">メッセージ受信一覧
+              </a>
+            
+          </li>
+        
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="スケジュール登録" href="
+                top.do?buttonName=showContent&menulv1=0000000001&menuIndex=1&contenam=wbassdtu&kjnmnNo=10
+                ">スケジュール登録
+              </a>
+            
+          </li>
+        
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="ブックマーク登録" href="
+                top.do?buttonName=showContent&menulv1=0000000001&menuIndex=2&contenam=wbasbkmu&kjnmnNo=11
+                ">ブックマーク登録
+              </a>
+            
+          </li>
+        
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="メッセージ転送設定" href="
+                top.do?buttonName=showContent&menulv1=0000000001&menuIndex=3&contenam=wbasmfwu&kjnmnNo=12
+                ">メッセージ転送設定
+              </a>
+            
+          </li>
+        
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="キャビネット一覧" href="
+                top.do?buttonName=showContent&menulv1=0000000001&menuIndex=4&contenam=prtlcabu&kjnmnNo=13
+                ">キャビネット一覧
+              </a>
+            
+          </li>
+        
+      
+      </ul>
+    </li>
+  
+    <li ><a href="tab.do?buttonName=changeTab&menulv1=0000000002" ><span class="bkimg">教務掲示</span></a>
+      <ul id="menu_list">
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="教務掲示一覧" href="
+                top.do?buttonName=showContent&menulv1=0000000002&menuIndex=0&contenam=prtlkkir&kjnmnNo=17
+                ">教務掲示一覧
+              </a>
+            
+          </li>
+        
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="My時間割" href="
+                top.do?buttonName=showContent&menulv1=0000000002&menuIndex=1&contenam=prtlmjkr&kjnmnNo=18
+                ">My時間割
+              </a>
+            
+          </li>
+        
+      
+      </ul>
+    </li>
+  
+    <li ><a href="tab.do?buttonName=changeTab&menulv1=0000000003" ><span class="bkimg">履修・成績</span></a>
+      <ul id="menu_list">
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="履修登録" href="
+                wrsytblu.do?clearAccessData=true&contenam=wrsytblu&kjnmnNo=23
+                ">履修登録
+              </a>
+            
+
+            
+            
+          </li>
+        
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="学業成績表照会" href="
+                wssrgskr999.do?clearAccessData=true&contenam=wssrgskr999&kjnmnNo=30
+                ">学業成績表照会
+              </a>
+            
+
+            
+            
+          </li>
+        
+      
+      </ul>
+    </li>
+  
+    <li ><a href="tab.do?buttonName=changeTab&menulv1=0000000004" ><span class="bkimg">キャビネット</span></a>
+      <ul id="menu_list">
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="キャビネット一覧" href="
+                top.do?buttonName=showContent&menulv1=0000000004&menuIndex=0&contenam=prtlcabu&kjnmnNo=42
+                ">キャビネット一覧
+              </a>
+            
+          </li>
+        
+      
+      </ul>
+    </li>
+  
+    <li class='menu_end'><a href="tab.do?buttonName=changeTab&menulv1=0000000005" ><span class="bkimg">アンケート</span></a>
+      <ul id="menu_list">
+      
+        
+        
+
+        
+        
+          <li>
+            
+            
+
+            
+            
+              <a style = "padding-left:15px;padding-right:15px" title="アンケート回答" href="
+                top.do?buttonName=showContent&menulv1=0000000005&menuIndex=0&contenam=sprtenqu&kjnmnNo=45
+                ">アンケート回答
+              </a>
+            
+          </li>
+        
+      
+      </ul>
+    </li>
+  
+
+      
+      
+
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+
+<div id="content">
+  <table cellpadding="0" cellspacing="0" summary="layout">
+    <tr>
+      
+      
+
+
+
+
+
+
+
+
+
+
+<div id="login_inf_print">
+  <div class="top"></div>
+  <div class="mid">
+    
+    <ul class="user">
+      <li class="label">ログインユーザ ：</li>
+      <li class="item">G384472023</li>
+      <li class="item">澤田　歩</li>
+    </ul>
+  
+  </div>
+  <div class="under"></div>
+</div>
+
+
+      
+      
+
+
+
+
+
+
+
+<td id="main">
+  
+    
+    <div id="title">
+      <h2>
+        履修登録
+      </h2>
+    </div>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+  function showTsujyoKougiList(youbikn, jigenkn) {
+    document.getElementById('kougiErrorMsg').style.display = 'none';
+    jq$("#resultKougiListBody").empty();
+    $('kougiListClose').style.display = 'none';
+    openFloatDialog("#kougiListDialog", 870, "講義選択");
+
+    
+    var target = "#kougiListDialog";
+    jq$(target).dialog({
+        beforeClose: function() {
+            if(checkSinseiCountSemaphore()) {
+                waitSinseiCount(false, target);
+                return false;
+            }
+            return true;
+        }
+    });
+
+    var requestURL = 'wrsytblu.do';
+    var param = {
+      'value(selectYobikn)': youbikn,
+      'value(selectJigenkn)': jigenkn,
+      'buttonName':"showTsujyoKougiList"
+    };
+    $('kougiUnyuMsg').style.display = 'none';
+    ajaxRequest(requestURL, param, loadResultList, "kougiListDialog");
+
+    
+    var yobiArray = new Array("月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日", "日曜日", "その他");
+    var jigenArray = new Array("1時限", "2時限", "3時限", "4時限", "5時限", "6時限", "7時限", "8時限", "9時限", "10時限", "その他");
+    
+    var youbiIndex = isNaN(youbikn) ? yobiArray.length : eval(youbikn);
+    var jigenIndex = isNaN(jigenkn) ? jigenArray.length : eval(jigenkn);
+
+    var yobijigen = new Array(youbikn, jigenkn, yobiArray[--youbiIndex], jigenArray[--jigenIndex]);
+    commonSettingOpenDialog(yobijigen, 1, 2, 2);
+  }
+
+  function preShowSyutyuKougiList() {
+        document.getElementById('kougiErrorMsg').style.display = 'none';
+        jq$("#resultKougiListBody").empty();
+        $('kougiListClose').style.display = 'none';
+        openFloatDialog("#kougiListDialog", 870, "集中講義選択");
+
+        
+        var target = "#kougiListDialog";
+        jq$(target).dialog({
+            beforeClose: function() {
+                if(checkSinseiCountSemaphore()) {
+                    waitSinseiCount(false, target);
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        var requestURL = 'wrsytblu.do';
+        var param = {
+          'buttonName':"showSyutyuKougiList"
+        };
+        $('kougiUnyuMsg').style.display = 'none';
+        ajaxRequest(requestURL, param, loadResultList, "kougiListDialog");
+        commonSettingOpenDialog(null, 2, 1, 2);
+        return false;
+  }
+
+  function preShowTagakubuKougiList() {
+      $('kougiErrorMsg').style.display = 'none';
+      jq$("#resultKougiListBody").empty()
+      $('kougiListClose').style.display = 'none';
+      openFloatDialog("#kougiListDialog", 900, "他学部講義選択");
+
+        
+        var target = "#kougiListDialog";
+        jq$(target).dialog({
+            beforeClose: function() {
+                if(checkSinseiCountSemaphore()) {
+                    waitSinseiCount(false, target);
+                    return false;
+                }
+                return true;
+            }
+        });
+
+      var requestURL = 'wrsytblu.do';
+      var param = {
+        'buttonName':"showTagakubuKougiList"
+      };
+      $('kougiUnyuMsg').style.display = 'none';
+      ajaxRequest(requestURL, param, loadResultList, "kougiListDialog");
+      commonSettingOpenDialog(null, 2, 2, 1);
+      return false;
+  }
+
+  function preSearchKougi() {
+      return false;
+  }
+
+  function commonSettingOpenDialog(youbijigen, tsujyo, syutyu, tagakubu) {
+      if (tsujyo == 1) {
+          $('selectYobikn').value = youbijigen[0];
+          $('selectJigenkn').value = youbijigen[1];
+          $('displayYobi').innerHTML = youbijigen[2];
+          $('displayJigen').innerHTML = youbijigen[3];
+      } else {
+          $('displayYobi').innerHTML = "";
+          $('displayJigen').innerHTML = "";
+      }
+
+      $('viewTsujyoFlag').value = tsujyo;
+      $('viewSyutyuFlag').value = syutyu;
+      $('viewTagakubuFlag').value = tagakubu;
+  }
+
+  function loadResultList(data) {
+    jq$("#resultKougiListBody").empty().append(data);
+
+    var sinseiCountExecute = true;
+    var listLength = jq$("#resultKougiListBody").children().length;
+    if(listLength > 0) {
+        $('selectKougiList').style.display = 'block';
+        $('tourokuKougiButton').style.display = 'block';
+
+        var isMSIE = /*@cc_on!@*/false;
+        if (isMSIE && (document.documentMode == 9)) {
+            /* IE9で参照した場合、再描画処理を実施 */
+            var kougiRows = document.getElementsByClassName("resultKougiList");
+            redrawTableElements(kougiRows, "#resultKougiListBody", 0);
+        }
+    } else {
+        $('selectKougiList').style.display = 'none';
+        $('tourokuKougiButton').style.display = 'none';
+        sinseiCountExecute = false;
+    }
+
+    var sinseiTargetName;
+    if($('viewTsujyoFlag').value == 1) {
+        $('otherKougiAddButton').style.display = 'none';
+        $('otherKougiAddButton').style.display = 'none';
+        $('kougiMsg').innerHTML = "講義を選択してください。";
+        sinseiTargetName = 'selectKougiSinsei';
+    } else if ($('viewSyutyuFlag').value == 1) {
+        $('otherKougiAddButton').style.display = 'none';
+      if(listLength > 0) {
+        $('kougiMsg').innerHTML = "集中講義を選択してください。";
+        sinseiTargetName = 'selectSyutyuKougiSinsei';
+      } else {
+        $('kougiMsg').innerHTML = "履修可能な集中講義はありません。";
+      }
+    } else if ($('viewTagakubuFlag').value == 1) {
+        $('otherKougiAddButton').style.display = 'block';
+        $('selectKougiList').style.width = '830px';
+        $('selectKougiListHeader').style.width = '812px';
+      if(listLength > 0) {
+        $('kougiMsg').innerHTML = "他学部講義を選択してください。";
+        sinseiTargetName = 'selectTagakubuKougiSinsei';
+      } else {
+        $('kougiMsg').innerHTML = "追加されている他学部講義はありません。";
+      }
+    }
+
+    if($('kougiMsg').innerHTML != '') {
+        $('kougiUnyuMsg').style.display = 'block';
+    }
+
+    $('kougiListClose').style.display = 'block';
+
+    
+    if (sinseiCountExecute && false) {
+        findSinseiCount('kougiList', sinseiTargetName);
+    }
+  }
+
+  
+  function findSinseiCount(kougiListName, targetName) {
+      jq$('#kougiListName').text(kougiListName);
+      jq$('#sinseiTargetName').text(targetName);
+      var requestURL = 'wrsytblu.do';
+      var param = {
+          
+          'value(kougiListName)' : kougiListName,
+          'buttonName' : "searchKougiSinseiCount"
+      };
+      getSinseiCountSemaphore();
+      ajaxRequest(requestURL, param, loadSinseiCount, "", null, false, false);
+  }
+
+  var shiseiCountSemaphore = false;
+  
+  function getSinseiCountSemaphore() {
+      shiseiCountSemaphore = true;
+  }
+  function releaseSinseiCountSemaphore() {
+      shiseiCountSemaphore = false;
+  }
+
+  
+  function checkSinseiCountSemaphore() {
+      if (!shiseiCountSemaphore) {
+          return false;
+      }
+      return true;
+  }
+
+  function loadSinseiCount(data) {
+      jq$("#sinseiCountArea").empty().append(data);
+      releaseSinseiCountSemaphore();
+
+      var displayTargetId = '#' + jq$('#sinseiTargetName').text() + 'Count_';
+
+      var isMSIE = /*@cc_on!@*/false;
+      if (isMSIE && (document.documentMode == 9)) {
+          
+          var sinseiCountElements = document.getElementsByClassName("sinseiCount");
+          var targetElement;
+          var targetValue = sinseiCountElements.length;
+          for (var i = 0; i < targetValue; i++) {
+              targetElement = sinseiCountElements[i];
+              jq$(displayTargetId + targetElement.id).text(targetElement.innerText).fadeIn(800);
+          }
+      } else {
+          jq$(".sinseiCount").each(function() {
+              jq$(displayTargetId + jq$(this).attr("id")).text(jq$(this).text()).fadeIn(800);
+          });
+      }
+
+  }
+
+  
+  function openKougiListDialog() {
+    var dialogName ;
+    if ( false ){
+      dialogName = "講義選択";
+    }else if ( false ){
+      dialogName = "集中講義選択";
+    }else if ( false ){
+      dialogName = "他学部講義選択";
+    }else{
+      dialogName = "講義検索";
+    }
+    if( document.getElementById('findTagakubuKougiDialog') != null &&
+        document.getElementById('findTagakubuKougiDialog').style.display != 'none' ){
+      
+    }else{
+      openFloatDialog("#kougiSearchListDialog", 870, dialogName);
+    }
+  }
+
+    function confirmCheck() {
+      
+      if (confirm("登録講義にエラーがありますが、仮登録しますか？")) {
+        var split = false ;
+        $('errorCheckSkip').value = 1;
+        $("selectButtonName").name = "tourokuKougi";
+        $('form').submit();
+      }
+    }
+
+    
+    function findTagakubuKougiDialog_open(){
+        
+        selectFindTagakubuTab();
+        displaySearchMessage();
+        $('findTagakubuYobiBox').value = '';
+        $('findTagakubuJigenBox').value = '';
+        $('findTagakubuKouginamTxt').value = '';
+
+        if ($('findTagakubuKougicdTxt')) {
+            $('findTagakubuKougicdTxt').value = '';
+        }
+        if ($('findTagakubuBunyaBox')) {
+            $('findTagakubuBunyaBox').value = '';
+        }
+        if ($('findTagakubuKyoinTxt')) {
+            $('findTagakubuKyoinTxt').value = '';
+        }
+
+        if(jq$("#resultTagakubuTab").size() != 0){
+            $('resultTagakubuTabHeader').className = 'disable';
+            jq$("#resultSearchTagakubuKougiTableBody").empty();
+        }
+
+        
+        openFloatDialog("#findTagakubuKougiDialog", 880, "他学部講義検索");
+
+        
+        var target = "#findTagakubuKougiDialog";
+        jq$(target).dialog({
+            beforeClose: function() {
+                if(checkSinseiCountSemaphore()) {
+                    waitSinseiCount(false, target);
+                    return false;
+                }
+                return true;
+            }
+        });
+    }
+
+    function waitSinseiCount(polling, target) {
+        if (!polling) {
+            
+            jq$(target).block({ message:"お待ちください..."});
+        }
+        
+        if (checkSinseiCountSemaphore()) {
+            setTimeout(function() {
+                waitSinseiCount(true, target);
+            }, 500);
+            return ;
+        }
+        jq$(target).unblock();
+        jq$(target).dialog('close');
+    }
+
+    function checkKougi(polling) {
+        var requestURL = 'wrsytblu.do';
+        var split = false ;
+        $('kougicds').value = "";
+        for(i=0;i<jq$("#resultKougiListBody").children().length ;i++){
+            if( $('kougicds'+i).checked == true ){
+              if(split==false){
+                $('kougicds').value = $('kougicds'+i).value;
+                split = true ;
+              }else{
+                $('kougicds').value += "," + $('kougicds'+i).value;
+              }
+            }
+        }
+
+        var param = {
+                'value(kougicds)' : $('kougicds').value,
+                'value(viewTsujyoFlag)' : $('viewTsujyoFlag').value,
+                'value(viewSyutyuFlag)' : $('viewSyutyuFlag').value,
+                'value(viewTagakubuFlag)' : $('viewTagakubuFlag').value,
+                'value(selectYobikn)' : $('selectYobikn').value,
+                'value(selectJigenkn)' : $('selectJigenkn').value,
+                'buttonName' : "checkKougi"
+        };
+
+        if (!polling) {
+            
+            jq$("#kougiListDialog").block({ message:"お待ちください..."});
+        }
+        
+        if (checkSinseiCountSemaphore()) {
+            setTimeout(function() {
+                checkKougi(true);
+            }, 500);
+            return;
+        }
+        ajaxRequest(requestURL, param, tourokuKougi, "", null, true, true);
+    }
+
+  
+  function tourokuKougi(data){
+      jq$("#kougiErrorMsg").empty().append(data);
+      jq$("#kougiListDialog").unblock();
+
+      document.getElementById('kougiErrorMsg').style.display = 'block';
+      if(data != null && data.indexOf("errorFindConfirmFlag") != -1) {
+         confirmCheck();
+         return;
+      }
+
+      if(jq$("#kougiErrorMsg").children().length == 0){
+          var split = false ;
+          $('errorCheckSkip').value = 1;
+          $("selectButtonName").name = "tourokuKougi";
+          $('form').submit();
+        }
+  }
+
+  
+  
+  function waitSinseiCountSyllabus(polling, url, target) {
+      if (!polling) {
+          
+          jq$(target).block({ message:"お待ちください..."});
+      }
+      
+      if (checkSinseiCountSemaphore()) {
+          setTimeout(function() {
+              waitSinseiCountSyllabus(true, url, target);
+          }, 500);
+          return;
+      }
+
+      jq$(target).unblock();
+      syllabusLink(url);
+  }
+
+//-->
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/kyomu.css">
+<style type="text/css">
+.kikanboxTab {
+   width:100px;
+   height:30px;
+   line-height:30px;
+}
+.detail td {
+   vertical-align: top;
+}
+</style>
+
+<form name="kyomuActionForm" id="form" method="post" action="/campusweb/wrsytblu.do">
+<input type="hidden" name="buttonName" value=""/>
+<input type="hidden" name="timestamp" value="1680764400315"/>
+
+
+  
+    
+    
+  
+
+
+
+
+
+
+
+
+
+<div id="content_navi">
+	
+		<span class="on">登録内容入力</span>
+    	
+			<span class="image"></span>
+		
+	
+		<span class="off">登録内容確認</span>
+    	
+			<span class="image"></span>
+		
+	
+		<span class="off">登録完了</span>
+    	
+	
+</div>
+
+  <div class="contents_1">
+    <table style="margin-bottom:0px;border:none;padding-top:10px">
+      <tr>
+        <td colspan="2" style="border:none;text-align:left;background-color:transparent;">
+          <div class="caption" style="margin-left:0px;margin-top:0px;line-height:2em">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 共通エラー -->
+    
+    <!-- 単位超過（不足）エラー -->
+    
+    <!-- 科目重複エラー -->
+    
+    <!-- 時間割重複エラー -->
+    
+    <!-- 既修得エラー -->
+    
+    <!-- 配当年次エラー -->
+    
+    <!-- 排他科目エラー -->
+    
+    <!-- 前提科目エラー -->
+    
+    <!-- 科目重複制限回数エラー -->
+    
+    <!-- 科目重複同一教員エラー -->
+    
+    <!-- 資格科目エラー -->
+    
+
+    <!-- 共通アクションメッセージ -->
+    
+      
+        <span class="image"></span><span class="h4 line4">履修したい講義のある曜日・時限を選択してください。</span>
+        <br>
+      
+    
+
+
+</div>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2" style="border:none;text-align:right;background-color:transparent;">
+          <div class="function_bottom" style="float:right">
+          
+            
+              
+            <input type="button" id="showSyutyuKougiList" onclick="return exec('showSyutyuKougiList',this,preShowSyutyuKougiList)" value="集中講義選択" class="search decorate" />
+          
+          
+            
+              
+            <input type="button" id="showTagakubuKougiList" onclick="return exec('showTagakubuKougiList',this,preShowTagakubuKougiList)" value="他学部講義選択" class="search decorate" />
+          
+          
+            
+              
+            <input type="button" id="findKougiDialog_open" onclick="return exec('searchKougi',this,preSearchKougi)" value="講義検索" class="search decorate" />
+          
+          
+            
+              
+            <input type="button" id="goSikakSinseiButton" onclick="location.href='wrsytblu.do?buttonName=goSikakSinsei&tbluflag=1'" value="資格申請画面へ" class="run decorate" />
+          
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="margin-top: 10px;"></div>
+
+  <div class="contents_1">
+  <div id="tabnavigation_detail" style="margin-left:30px">
+    
+      
+      <ul>
+        
+        <li class="active kikanboxTab" style="border-right:none;">
+          2023年 前期
+        </li>
+        
+        
+        
+        <li class="kikanboxTab">
+          
+            
+            
+            
+          <A id="switchJikanwariKikan" href="wrsytblu.do?buttonName=switchJikanwariKikan&kikankn=2&confirmFlag=2">2023年 後期</A>
+        </li>
+        
+      </ul>
+      
+      
+    
+    
+
+  </div>
+
+  
+    
+    
+    
+    
+  
+
+
+
+
+
+  <div id="risyuNendoPrintField" style="margin-left: 30px;text-align:left";>
+    2023年
+    
+      
+        前期
+      
+      
+    
+    
+  </div>
+
+
+  <div align="right" style="margin-right:20px;">
+    <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" width="18" height="18" >
+    未登録
+    <img src="img/kyomu/ico_sumi.gif" alt="登録済" width="18" height="18">
+    登録済
+    <img src="img/kyomu/ico_fuka.gif" alt="変更不可" width="18" height="18" >
+    変更不可
+  </div>
+
+  </div>
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  
+
+
+
+  <table class="detail jikanwari_table" style="margin-top:0px;">
+    <tr>
+      <td class="label_nodot youbi_jigen" style="text-align:center;white-space:nowrap">時限</td>
+      <td class="line_y_label" style="width: 0.01em"></td>
+      <td class="label_nodot youbi_label" style="text-align:center;white-space:nowrap">月曜日</td>
+      <td class="line_y_label" style="width: 0.01em"></td>
+      <td class="label_nodot youbi_label" style="text-align:center;white-space:nowrap">火曜日</td>
+      <td class="line_y_label" style="width: 0.01em"></td>
+      <td class="label_nodot youbi_label" style="text-align:center;white-space:nowrap">水曜日</td>
+      <td class="line_y_label" style="width: 0.01em"></td>
+      <td class="label_nodot youbi_label" style="text-align:center;white-space:nowrap">木曜日</td>
+      <td class="line_y_label" style="width: 0.01em"></td>
+      <td class="label_nodot youbi_label" style="text-align:center;white-space:nowrap">金曜日</td>
+      
+        <td class="line_y_label" style="width: 0.01em"></td>
+        <td class="label_nodot youbi_label" style="text-align:center;white-space:nowrap">土曜日</td>
+      
+      
+    </tr>
+    
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_1_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">1時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('1', '1');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('2', '1');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('3', '1');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('4', '1');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('5', '1');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_2_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">2時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('1', '2');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('2', '2');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('3', '2');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('4', '2');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_3_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">3時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('1', '3');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('2', '3');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('3', '3');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('4', '3');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('5', '3');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_4_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">4時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('1', '4');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('2', '4');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('3', '4');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('4', '4');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('5', '4');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_5_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">5時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('2', '5');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('3', '5');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+      
+          class="item jikanwari_koma" onClick="return showTsujyoKougiList('4', '5');" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <img src="img/kyomu/ico_mitoroku.gif" alt="未登録" >
+      <br><br>
+    
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_6_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">6時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+      <tr>
+        
+        
+          <td class="line_x" colspan="13"/></td>
+        
+        
+  
+      </tr>
+      <tr class="rule_7_1">
+        <td class="label_nodot" style="text-align:center; vertical-align:middle; white-space:nowrap">7時限</td>
+        <td class="line_y_label"></td>
+        
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+              <td class="line_y" style="width: 0.01em"></td>
+            
+          
+          
+          
+        
+          <td class="item" style="padding:0px;vertical-align:top;cell-padding: 0px;cell-spacing: 0px">
+          
+          
+            
+            
+              <table class="jikanwariKoma" style="margin:0px;border:none;">
+                <tr>
+                  
+                    
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <td  
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+          class="item" style="margin:0px; border-style:none; min-width:50%; vartical-align: top">
+      <br><br>
+    
+  
+
+
+
+</td>
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+          </td>
+          
+            
+          
+          
+          
+        
+      </tr>
+    
+  </table>
+</div>
+<script type="text/javascript">
+<!--
+jq$(document).ready(function() {
+    if(jq$('.sayuu_bunkatu').length != 0) {
+        var youbiJigenLabel = parseInt(jq$('.youbi_jigen').width());
+        var youbiLabelWidth = new Array();
+        for (var i = 0; i < jq$('.youbi_label').length; i++) {
+            youbiLabelWidth.push(parseInt(jq$('.youbi_label').eq(i).width()));
+        }
+
+        var maxLWidth = new Array(jq$('.youbi_label').length);
+        var maxRWidth = new Array(jq$('.youbi_label').length);
+        var maxILWidth = new Array(jq$('.youbi_label').length);
+        for (var i = 0; i < jq$('.youbi_label').length; i++) {
+            maxLWidth[i] = 0;
+            maxRWidth[i] = 0;
+            maxILWidth[i] = 0;
+        }
+
+        
+        var twinDisplayflg = false;
+        
+        
+        var youbiCount = jq$('.youbi_label').length;
+        if(twinDisplayflg){
+            youbiCount = jq$('.youbi_label').length / 2;
+        }
+
+        
+        var beginIndex;
+        var endIndex;
+        if(twinDisplayflg && true){
+            
+            beginIndex = youbiCount;
+            endIndex = jq$('.youbi_label').length;
+        }else{
+            
+            beginIndex=0;
+            endIndex=youbiCount;
+        }
+        
+        for (var i = 0; i < jq$('.sayuu_bunkatu').length; i++) {
+            for(var j = beginIndex; j < endIndex; j++) {
+                
+                var youbikn = (j % youbiCount + 1) + '_' + '1';
+                if(jq$('.sayuu_bunkatu').eq(i).hasClass(youbikn)) {
+                    var lWidth = parseInt(jq$('.sayuu_bunkatu').eq(i).children('td').eq(0).outerWidth());
+                    var rWidth = parseInt(jq$('.sayuu_bunkatu').eq(i).children('td').eq(2).outerWidth());
+
+                    var ilWidth = parseInt(jq$('.sayuu_bunkatu').eq(i).children('td').eq(0).width());
+
+                    if (maxLWidth[j] < lWidth) {
+                        maxLWidth[j] = lWidth;
+                    }
+
+                    if (maxILWidth[j] < ilWidth) {
+                        maxILWidth[j] = ilWidth;
+                    }
+
+                    if (maxRWidth[j] < rWidth) {
+                        maxRWidth[j] = rWidth;
+                    }
+                }
+            }
+        }
+
+        for (var i = 0; i < jq$('.sayuu_bunkatu').length; i++) {
+            for(var j = beginIndex; j < endIndex; j++) {
+            	var youbikn = (j % youbiCount + 1) + '_' + '1';
+                if(jq$('.sayuu_bunkatu').eq(i).hasClass(youbikn)) {
+                    jq$('.sayuu_bunkatu').eq(i).children('td').eq(0).css({'width' : (maxILWidth[j]) + "px"});
+                }
+            }
+        }
+        
+        jq$('.jikanwari_table').css({'table-layout' : 'fixed'});
+        
+        
+        jq$('.jikanwariKoma').css({'table-layout' : 'fixed'});
+
+        jq$('.youbi_jigen').css({'width' : youbiJigenLabel + "px"});
+        for (var i = 0; i < jq$('.youbi_label').length; i++) {
+            if( youbiLabelWidth[i] < (maxLWidth[i] + maxRWidth[i])) {
+                jq$('.youbi_label').eq(i).css({'width' : (maxLWidth[i] + maxRWidth[i]) + "px"});
+            }
+            else {
+                jq$('.youbi_label').eq(i).css({'width' : youbiLabelWidth[i] + "px"});
+            }
+        }
+        
+        
+        jq$('tr[class^=rule_]').each(function() {
+            var height = parseInt(jq$(this).height());
+            
+            var className = jq$(this).attr( "class" );
+            var outerHeight = parseInt(jq$('.' + className).outerHeight(true));
+
+            for (var youbikn = 1; youbikn <= jq$('.youbi_label').length; youbikn++) {
+                var childHeight = 0;
+                var topChildHeight = 0;
+                if (jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[0]) {
+                    topChildHeight = parseInt(jQuery(jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[0]).height());
+                    childHeight += topChildHeight;
+                }
+                if (jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[1]) {
+                    childHeight += parseInt(jQuery(jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[1]).height());
+                }
+                
+                if (childHeight != 0 && height > childHeight) {
+                	if (jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[1]) {
+                        
+                        jQuery(jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[0]).css({"height" : topChildHeight + "px"});
+                        jQuery(jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[1]).css({"height" : (outerHeight - topChildHeight) + "px"});
+                    } else {
+                        
+                        if(navigator.userAgent.indexOf('MSIE')>-1){ // if IE
+                            jQuery(jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[0]).css({"height" : outerHeight + "px"});
+                        } else {
+                            jQuery(jq$('.vertical' + className + '_' + youbikn % (youbiCount + 1))[0]).css({"height" : outerHeight + 5 + "px"});
+                        }
+                    }
+                }
+            }
+        });
+    }
+});
+//-->
+</script>
+
+  
+  
+    
+    
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  <div style="width : 52%; margin-left: 45.5%;">
+    
+      
+      
+      
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="contents_1">
+<table class="detail" style="margin-bottom:0px;margin-left:30px;">
+  
+    <tr>
+      <td class="label_nodot" colspan="3" width="22%" style="text-align:center; vertical-align:middle">&nbsp;</td>
+      <td class="line_y" rowspan="5"/></td>
+      <td class="label_nodot" colspan="3" width="26%" style="text-align:center; vertical-align:middle">前期</td>
+      <td class="line_y" rowspan="5"/></td>
+      <td class="label_nodot" colspan="3" width="26%" style="text-align:center; vertical-align:middle">後期</td>
+      <td class="line_y" rowspan="5"/></td>
+      <td class="label_nodot" colspan="3" width="26%" style="text-align:center; vertical-align:middle">年間</td>
+    </tr>
+    <tr>
+      <td class="line_x" colspan="15"/></td>
+    </tr>
+    <tr>
+      <td class="label_nodot" width="11%" style="text-align:center; vertical-align:middle; white-space: normal">上限</td>
+      <td class="line_y" rowspan="3"/></td>
+      <td class="label_nodot" width="11%" rowspan="3" style="text-align:center; vertical-align:middle; white-space: normal">履修単位</td>
+      
+      <td class="item" width="13%" style="text-align:center; vertical-align:middle">
+        
+          27
+        
+        
+      </td>
+      <td class="line_y" rowspan="3"/></td>
+      
+      <td class="item" width="13%" rowspan="3" style="text-align:center; vertical-align:middle">
+        <span style="color:red;font-weight:bold; font-size:110%;">
+          
+            0
+          
+          
+        </span>
+      </td>
+      
+      <td class="item" width="13%" style="text-align:center; vertical-align:middle">
+        
+          27
+        
+        
+      </td>
+      <td class="line_y" rowspan="3"/></td>
+      
+      <td class="item" width="13%" rowspan="3" style="text-align:center; vertical-align:middle">
+        <span style="color:red;font-weight:bold; font-size:110%;">
+          
+            0
+          
+          
+          </span>
+      </td>
+      
+      <td class="item" width="13%" style="text-align:center; vertical-align:middle">
+        
+          48
+        
+        
+      </td>
+      <td class="line_y" rowspan="3"/></td>
+      
+      <td class="item" width="13%" rowspan="3" style="text-align:center; vertical-align:middle">
+        <span style="color:red;font-weight:bold; font-size:110%;">
+          
+            0
+          
+          
+          </span>
+      </td>
+    </tr>
+    <tr>
+      <td class="line_x" colspan="1"/></td>
+      <td class="line_x" colspan="1"/></td>
+      <td class="line_x" colspan="1"/></td>
+      <td class="line_x" colspan="1"/></td>
+    </tr>
+    <tr>
+      <td class="label_nodot" width="11%" style="text-align:center; vertical-align:middle; white-space: normal">下限	</td>
+      
+      <td class="item" width="13%" style="text-align:center; vertical-align:middle">
+        
+        
+          -
+        
+      </td>
+      
+      <td class="item" width="13%" style="text-align:center; vertical-align:middle">
+        
+        
+          -
+        
+      </td>
+      
+      <td class="item" width="13%" style="text-align:center; vertical-align:middle">
+        
+        
+          -
+        
+      </td>
+    </tr>
+  
+  
+  
+  
+
+</table>
+</div>
+
+  </div>
+
+  
+  <div class="contents_1">
+    <div class="function_bottom" style="float:right">
+      <input type="button" id="confirm" onclick="return exec('showConfirmation',this,null)" value="入力内容を確認する" class="ok decorate" />
+    </div>
+  </div>
+  
+
+
+<ul style="display:none" id="sinseiCountArea">
+</ul>
+<ul style="display:none" id="kougiListName"></ul>
+<ul style="display:none" id="sinseiTargetName"></ul>
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="kougiListDialog" style="display:none;">
+    <div class="caption" id="kougiListDialogTitle" style="text-align:left">
+      <div class="back_r"></div>
+      <span class="h3 line3">
+        
+        2023年       
+        
+        
+          
+            前期
+          
+          
+        
+        
+        
+        
+        <span id="displayYobi"></span>
+        
+        <span id="displayJigen"></span>
+      </span>
+   </div>
+
+
+         
+    
+    <div class="caption" id="kougiErrorMsg" style="text-align:left; display:none">
+      
+
+
+
+
+
+    
+    
+      
+        <span class="image"></span><span class="h4 line4">履修したい講義のある曜日・時限を選択してください。</span>
+        <br>
+      
+    
+
+    </div>
+    
+    <div class="caption" style="margin-top:0px;text-align:left;padding-top:7px">
+      <div id="kougiUnyuMsg">
+        <span class="image" style="margin-top:0px;"></span>
+        <span class="h4 line4" style="line-height:2em"  id="kougiMsg"></span>
+      </div>
+    </div>
+
+  <div class="contents_1" id="selectKougiList" style="width: 805px; height: 275px;overflow-y:scroll;  margin-top: 0px; margin-left: 20px; border: #777777 1px solid;display:none">
+    <table class="list" style="width: 785px; margin-top: 0px" id="selectKougiListHeader">
+      <thead>
+        <tr class="label">
+          <td style="white-space:nowrap;text-align:center;">選択</td>
+          
+          <td style="white-space:nowrap;text-align:center;">講義名</td>              
+          
+            <td style="white-space:nowrap;text-align:center;">分野系列</td>
+          
+          
+          <td style="white-space:nowrap;text-align:center;">単位</td>
+          
+            <td style="white-space:nowrap;text-align:center;">担当教員</td>
+          
+          
+            <td style="white-space:nowrap;text-align:center;">教室</td>
+          
+          
+            <td style="white-space:nowrap;text-align:center;">キャンパス</td>
+          
+          
+          
+          <td style="white-space:nowrap;text-align:center;">情報</td>
+        </tr>
+      </thead>
+      <tbody id="resultKougiListBody">
+      </tbody>
+    </table>
+  </div>
+
+   <table id="findTagakubuKougi" >
+     <tr>      
+      <td>
+       
+         <div class="contents_1" id="otherKougiAddButton" style="border:none;text-align:right;background-color:transparent;display:none">
+           <div class="function_bottom" style="float:right">
+             <input type="button" class="run decorate" style="float: right; margin-right: 20px"  onclick="return findTagakubuKougiDialog_open()" value="講義を追加する" />
+           </div>
+         </div>
+      </td>
+     </tr>
+  </table>
+
+  <div class="function_bottom" style="display:none" id="kougiListClose">
+    
+    <input type="button" class="close decorate" value="閉じる" style="margin-left:114px" />
+    
+    <input type="button" class="run decorate" onclick="return checkKougi()" value="登録する"  id="tourokuKougiButton" style="float: right; margin-right: 20px" />         
+  </div>
+</div>
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+    
+    function openFindKougiDialog(e) {
+      clearFindKougiDialog();
+      openFloatDialog("#findKougiDialog", 870, "講義検索");
+    }
+
+    
+    function clearFindKougiDialog() {
+      enableFindTab();
+      $('findYobiBox').value = '';
+      $('findJigenBox').value = '';
+      $('findKougicdTxt').value = '';
+      $('findKouginamTxt').value = '';
+      $('findBunyaBox').value = '';
+      $('findKyoinTxt').value = '';
+      jq$("#kougiTableBody").empty();
+      document.getElementById('resultTabHeader').className = 'disable';
+      document.getElementById('findKougiErrorMsg').style.display = 'none';
+      document.getElementById('findKougiMsg').style.display = 'block';
+      document.getElementById('noFindKougiListErrorMsg').style.display = 'none';
+      document.getElementById('findKougiresultMsg').style.display = 'none';      
+      document.getElementById('findcountOver').style.display = 'none';
+    }
+  
+    
+    function enableFindTab() {
+       
+       document.getElementById('resultTab').style.display = 'none'; 
+       document.getElementById('resultTabHeader').className = ''; 
+       
+       document.getElementById('findTab').style.display = 'block';
+       document.getElementById('findTabHeader').className = 'active';
+       document.getElementById('findKougiErrorMsg').style.display = 'none';
+       document.getElementById('findcountOver').style.display = 'none';
+       if(jq$("#kougiTableBody").children().length == 0){
+           document.getElementById('resultTabHeader').className = 'disable';
+       } else {         
+          document.getElementById('findKougiMsg').style.display = 'block';
+          document.getElementById('noFindKougiListErrorMsg').style.display = 'none';
+          document.getElementById('findKougiresultMsg').style.display = 'none';      
+       }       
+    }
+
+    
+    function enableResultTab() {
+     if(jq$("#kougiTableBody").children().length > 0){
+        document.getElementById('findTab').style.display = 'none'; 
+        document.getElementById('findTabHeader').className = ''; 
+        document.getElementById('resultTab').style.display = 'block';
+        document.getElementById('resultTabHeader').className = 'active'; 
+        document.getElementById('findKougiMsg').style.display = 'none';
+        document.getElementById('noFindKougiListErrorMsg').style.display = 'none';
+        document.getElementById('findKougiresultMsg').style.display = 'block';      
+        
+        document.getElementById('tourokuKougiFromFindButton').style.display = 'block';
+        document.getElementById('findKougiErrorMsg').style.display = 'block';
+        
+        if(jq$("#kougiTableBody").children().length >= 100) {
+            document.getElementById('findcountOver').style.display = 'block';
+        } else {
+            document.getElementById('findcountOver').style.display = 'none';
+        }
+        changeKougiCheckBox();
+      } 
+    }
+
+    function confirmFindCheck() {
+        
+        if (confirm("登録講義にエラーがありますが、仮登録しますか？")) {
+            $('errorCheckSkip').value = 1;
+            $("selectButtonName").name = "tourokuKougiFromFind";
+            $('form').submit();
+        }
+    }   
+
+    
+    function searchKougi() {
+      var requestURL = 'wrsytblu.do';
+      var param = {
+        'value(findYobi)': $('findYobiBox').value,
+        'value(findJigen)': $('findJigenBox').value,
+        'value(findKougicd)': $('findKougicdTxt').value,
+        'value(findKouginam)': $('findKouginamTxt').value,
+        'value(findBunya)': $('findBunyaBox').value,
+        'value(findKyoin)': $('findKyoinTxt').value,
+        'buttonName': "searchKougi"
+      };
+
+      ajaxRequest(requestURL, param, loadKougiList, "findKougiDialog");
+    }
+
+    function checkFindKougi(polling) {
+        if (!polling) {
+            
+            jq$("#findKougiDialog").block({ message:"お待ちください..."}); 
+        }
+        
+        if (checkSinseiCountSemaphore()) {
+            setTimeout(function() {
+                checkFindKougi(true);
+            }, 500);
+            return;
+        }
+
+        var requestURL = 'wrsytblu.do';
+        var split = false ;
+        $('selectKougiFromFind').value = '';
+        for(i=0;i<jq$("#kougiTableBody").children().length ;i++){
+            if( $('selectKougiFromFind'+i).checked == true ){
+              if(split==false){
+                $('selectKougiFromFind').value = $('selectKougiFromFind'+i).value;
+                split = true ;
+              }else{
+                $('selectKougiFromFind').value += "," + $('selectKougiFromFind'+i).value;
+              }
+            }
+        }
+
+        var param = {
+                'value(kougicds)' : $('selectKougiFromFind').value,
+                'buttonName' : "checkKougi"
+        };
+
+        ajaxRequest(requestURL, param, tourokuKougiFromFind, "findKougiDialog");
+    }
+    
+    
+    function tourokuKougiFromFind(data){
+      jq$("#findKougiDialog").unblock();
+
+      jq$("#findKougiErrorMsg").empty().append(data);
+      
+      document.getElementById('findKougiErrorMsg').style.display = 'block';
+      if(data != null && data.indexOf("errorFindConfirmFlag") != -1) {
+         confirmFindCheck();
+         return;
+      }
+
+      if(jq$("#findKougiErrorMsg").children().length == 0){
+        var split = false ;
+        $('errorCheckSkip').value = 1;
+        $("selectButtonName").name = "tourokuKougiFromFind";
+        $('form').submit();
+      }
+    }
+
+    
+    function loadKougiList(data) {
+      jq$("#findKougiErrorMsg").empty();
+      jq$("#kougiTableBody").empty().append(data);
+
+      if(jq$("#kougiTableBody").children().length == 0){
+        document.getElementById('findKougiMsg').style.display = 'none';
+        document.getElementById('noFindKougiListErrorMsg').style.display = 'block';
+        document.getElementById('findKougiresultMsg').style.display = 'none';      
+        
+        document.getElementById('resultTabHeader').className = 'disable';
+        document.getElementById('findcountOver').style.display = 'none';
+      } else {
+        enableResultTab();
+
+        var isMSIE = /*@cc_on!@*/false;
+        if (isMSIE && (document.documentMode == 9)) {
+            
+            var kougiRows = document.getElementsByClassName("resultKougiRows");
+            redrawTableElements(kougiRows, "#kougiTableBody", 0);
+        }
+
+        
+        if (false) {
+            findSinseiCount('findKougiResult', 'findKougiSinsei');
+        }
+      }
+    }
+    
+    function changeKougiCheckBox() {
+        if(isSelectAnyCheckbox('values(selectKougiFromFind)')) {
+            $('tourokuKougiFromFindButton').disabled = false;
+            $('tourokuKougiFromFindButton').style.color = 'black';  
+        } else {
+            $('tourokuKougiFromFindButton').disabled = true;
+            $('tourokuKougiFromFindButton').style.color = 'gray';
+        }
+    }
+//-->
+</script>
+
+<div id="findKougiDialog" style="display:none;">
+
+  <div class="caption" id="findKougiDialogTitle" style="margin-bottom: 0px;">
+    <div class="back_r" id="pageTop"></div>
+
+    
+    <div class="caption" style="text-align:left;margin-left: 6px;margin-bottom: 13px;">
+    <span class="h3 line3">
+      2023年
+      
+        前期
+        
+      
+      
+    </span>
+    </div>
+
+    
+    <div class="caption" id="findKougiErrorMsg" style="text-align:left;margin-left: 0px; display:none">
+      
+
+
+
+
+
+    
+    
+      
+        <span class="image"></span><span class="h4 line4">履修したい講義のある曜日・時限を選択してください。</span>
+        <br>
+      
+    
+
+    </div>
+    
+    
+    <div id="findKougiMsg" class="caption" style="margin-top:0px;text-align:left;margin-left: 0px">
+      
+        <span class="image" style="margin-top:0px; "></span>
+        <span class="h4 line4" style="line-height:2em">
+          講義の検索条件を入力してください。
+        </span>
+      
+    </div>   
+    <div id="noFindKougiListErrorMsg" class="caption" style="display:none; margin-top:0px;text-align:left;margin-left: 0px"> 
+      <span class="image" style="margin-top:0px; "></span>
+      <span class="h4 line4" >
+        指定された条件に該当する講義はありません。
+      </span>
+    </div>
+    <div id="findKougiresultMsg" class="caption" style="margin-top:0px;text-align:left;margin-left: 0px"> 
+      <span class="image" style="margin-top:0px; "></span>
+      <span class="h4 line4" style="line-height:2em">
+        講義を選択してください。
+      </span>
+    </div>
+    
+    <div id="findcountOver" class="caption" style="margin-top:0px;text-align:left;margin-left: 0px">
+      <span class="image" style="margin-top:0px;"></span>
+      <span class="h4 line4" style="color:red;">
+        検索件数が最大件数を超えています。
+      </span>
+    </div>
+  </div>
+  
+  <div class="tabheader" style="width: px;margin:0px 0px 0px 18px; height: 36px;">
+    <table style="margin:0px;padding:0px;width:100%"> 
+      <tr><td style="text-align:left;vertical-align:bottom;width:20%">
+
+        <div id="tabnavigation_list" style="margin-left: 0px;">
+          <ul>
+            
+            <li id="findTabHeader" style="width:70px;height:33px;line-height:33px;" class="active" >
+              <a id="findKougiTabTitle" class="select" onclick="enableFindTab(); return false;">検索条件</a>
+            </li>
+            
+            <li id="resultTabHeader" style="border-left:none ;width:70px;height:33px;line-height:33px; text-align:center;" class="disable" >
+              <a id="findKougiTabTitle" class="select" onclick="enableResultTab(); return false;">検索結果</a>
+            </li>
+          </ul>
+        </div>
+
+      </td></tr>
+    </table>
+  </div>
+
+  
+  <div id="findTab" class="contents_1" style="width: 810px;">
+
+    <div class="contents_1">
+      <table class="form" style="margin-top: 0px;margin-left: 20px;">
+        
+        <tr>
+          <td class="label" width="20%">曜日</td>
+          <td class="line_y_label"></td>
+          <td class="item">
+            <select name="value(findYobi)" id="findYobiBox" style="margin-left: 0px;"><option value=""></option>
+<option value="1">月曜日</option>
+<option value="2">火曜日</option>
+<option value="3">水曜日</option>
+<option value="4">木曜日</option>
+<option value="5">金曜日</option>
+<option value="6">土曜日</option>
+<option value="Z">その他</option></select>
+          </td>
+        </tr>
+        
+        <tr><td class="line_x" colspan="3"></td></tr>
+        <tr>
+          <td class="label" width="20%">時限</td>
+          <td class="line_y_label"></td>
+          <td class="item">
+            <select name="value(findJigen)" id="findJigenBox" style="margin-left: 0px;"><option value=""></option>
+<option value="1">1時限</option>
+<option value="2">2時限</option>
+<option value="3">3時限</option>
+<option value="4">4時限</option>
+<option value="5">5時限</option>
+<option value="6">6時限</option>
+<option value="7">7時限</option>
+<option value="Z">その他</option></select>
+          </td>
+        </tr>
+        
+        
+          <input type="hidden" name="value(findKougicd)" value="" id="findKougicdTxt">          
+        
+        
+        <tr><td class="line_x" colspan="3"></td></tr>
+        <tr>
+          <td class="label" width="20%">講義名</td>
+          <td class="line_y_label"></td>
+          <td class="item">
+            <input type="text" name="value(findKouginam)" maxlength="120" size="60" value="" id="findKouginamTxt">
+            (部分一致)
+          </td>
+        </tr>
+        
+          <tr><td class="line_x" colspan="3"></td></tr>
+          
+          <tr>
+            <td class="label" width="20%">分野系列</td>
+            <td class="line_y_label"></td>
+            <td class="item">
+              <select name="value(findBunya)" id="findBunyaBox" style="margin-left: 0px;"><option value=""></option>
+<option value="110000">教養教育科目</option>
+<option value="250000">専門基礎科目</option>
+<option value="252100">数・物・化</option>
+<option value="251100">英語</option>
+<option value="410000">専門科目</option>
+<option value="560000">自由科目</option>
+<option value="590000">卒業要件外の科目</option></select>
+            </td>
+          </tr>
+        
+        
+        
+          <tr><td class="line_x" colspan="3"></td></tr>
+          
+          <tr>
+            <td class="label" width="20%">担当教員</td>
+            <td class="line_y_label"></td>
+            <td class="item">
+              <input type="text" name="value(findKyoin)" maxlength="40" size="40" value="" id="findKyoinTxt">
+              (部分一致)
+            </td>
+          </tr>
+        
+        
+      </table>
+    </div>
+
+    
+    <div class="contents_1">
+      <div class="function_bottom">
+        
+        <input type="button" class="close decorate" value="閉じる" style="float: center; margin-left: 146px" />
+        
+        <input type="button" class="search decorate" onclick="return searchKougi()" value="講義を検索する" id="searchKougiButton" style="float: right; margin-right: 20px" />         
+      </div>
+    </div>
+  </div>
+  
+  
+  <div id="resultTab" class="contents_1" style="width: 825px; height: 340px; display:none">       
+    <div class="contents_1" style="width: 805px; height: 275px;overflow-y:scroll;  margin-top: 0px; margin-left: 20px; border: #777777 1px solid;">
+      <table class="list" style="width: 785px; margin-top: 0px">
+        <thead>
+          <tr class="label">
+            <td style="white-space:nowrap;text-align:center;">選択</td>
+            <td style="white-space:nowrap;text-align:center;">曜日時限</td>
+            
+            <td style="white-space:nowrap;text-align:center;">講義名</td>              
+            
+              <td style="white-space:nowrap;text-align:center;">分野系列</td>
+            
+            
+            <td style="white-space:nowrap;text-align:center;">単位</td>
+            
+              <td style="white-space:nowrap;text-align:center;">担当教員</td>
+            
+            
+              <td style="white-space:nowrap;text-align:center;">教室</td>
+            
+            
+              <td style="white-space:nowrap;text-align:center;">キャンパス</td>
+            
+            
+            
+            <td style="white-space:nowrap;text-align:center;">情報</td>
+          </tr>
+        </thead>
+        <tbody id="kougiTableBody">
+        </tbody>
+      </table>  
+    </div>     
+    
+    <div class="function_bottom">
+      
+      <input type="button" class="close decorate" value="閉じる" style="float: center; margin-left: 146px" />
+      
+      <input type="button" class="run decorate" onclick="return checkFindKougi(false)" value="講義を選択する"  id="tourokuKougiFromFindButton" style="float: right; margin-right: -2px" />         
+    </div> 
+  </div>   
+</div>
+
+
+
+<input type="hidden" name="value(findYobi)" value="" id="findYobi">
+<input type="hidden" name="value(findJigen)" value="" id="findJigen">
+<input type="hidden" name="value(findKougicd)" value="" id="findKougicd">
+<input type="hidden" name="value(findKouginam)" value="" id="findKouginam">
+<input type="hidden" name="value(findBunya)" value="" id="findBunya">
+<input type="hidden" name="value(findKyoin)" value="" id="findKyoin">
+<input type="hidden" name="values(kougicds)" value="" id="kougicds">
+<input type="hidden" name="values(selectKougiFromFind)" value="" id="selectKougiFromFind">
+
+<input type="hidden" name="value(errorCheckSkip)" value="2" id="errorCheckSkip">
+
+<input type="hidden" value="dummy" name="dummy" id="selectButtonName"/>
+
+
+<script language="JavaScript" type="text/JavaScript" src="./js/kyomu/kyomu.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+    
+    jq$(document).ready(function(){
+      jq$("#findKougiDialog_open").click(function() {
+        clearFindKougiDialog();
+        openFloatDialog("#findKougiDialog", 870, "講義検索");
+
+        
+        var target = "#findKougiDialog";
+        jq$(target).dialog({
+            beforeClose: function() {
+                if(checkSinseiCountSemaphore()) {
+                    waitSinseiCount(false, target);
+                    return false;
+                }
+                return true;
+            }
+        });
+      });
+    });
+
+    jq$(function() {
+        $('findcountOver').style.display = 'none';
+        if ('' == '講義の検索条件を入力してください。') {
+            jq$("#findKougiMsg").empty();
+        }
+        if ('' == '講義を選択してください。') {
+            jq$("#findKougiresultMsg").empty();
+        }
+    });
+    
+
+//-->
+</script>
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+    
+    function selectFindTagakubuTab() {
+        
+        enableFindTagakubuTab();
+        disableTagakubuKougiRegisterButton();
+        if ($('noKougiListErrorMsg').style.display != 'block') {
+            displaySearchMessage();
+        }
+    }
+
+    
+    function selectResultTagakubuTab() {
+        if (jq$("#resultSearchTagakubuKougiTableBody").children().length != 0) {
+            displayResultMessage();
+            enableResultTagakubuTab();
+            enableTagakubuKougiRegisterButton();
+        }
+    }
+
+    
+    function searchTagakubuKougi() {
+        var requestURL = 'wrsytblu.do';
+        var param = {
+            'value(findTagakubuYobi)': $F('findTagakubuYobiBox'),
+            'value(findTagakubuJigen)': $F('findTagakubuJigenBox'),
+            'value(findTagakubuKouginam)': $F('findTagakubuKouginamTxt'),
+            'buttonName': "searchTagakubuKougi"
+        };
+
+        if ($('findTagakubuKougicdTxt')) {
+            param['value(findTagakubuKougicd)'] = $F('findTagakubuKougicdTxt');
+        }
+        if ($('findTagakubuBunyaBox')) {
+            param['value(findTagakubuBunya)'] = $F('findTagakubuBunyaBox');
+        }
+        if ($('findTagakubuKyoinTxt')) {
+            param['value(findTagakubuKyoin)'] = $F('findTagakubuKyoinTxt');
+        }
+
+        ajaxRequest(requestURL, param, loadTagakubuKougiSearchResult, "findTagakubuKougiDialog");
+    }
+    
+    
+    function loadTagakubuKougiSearchResult(data) {
+        jq$("#resultSearchTagakubuKougiTableBody").empty().append(data);
+        if (jq$("#resultSearchTagakubuKougiTableBody").children().length == 0) {
+            displayNoResultMessage();
+            selectFindTagakubuTab();
+            disableTagakubuKougiRegisterButton();
+        } else {
+            selectResultTagakubuTab();
+            enableTagakubuKougiRegisterButton();
+            displayResultMessage();
+            displayLimitCountMessage();   
+
+            var isMSIE = /*@cc_on!@*/false;
+            if (isMSIE && (document.documentMode == 9)) {
+            	
+                var kougiRows = document.getElementsByClassName("resultTagakubuKougiRows");
+                redrawTableElements(kougiRows, "#resultSearchTagakubuKougiTableBody", 0);
+            }
+            
+            if (false) {
+                findSinseiCount('findTagakubuKougiResult', 'findTagakubuKougiSinsei');
+            }
+        }
+    }
+
+    function changeTagakubuKougiCheckBox() {
+        if(isSelectAnyCheckbox('values(selectTagakubuKougiFromFind)')) {
+            $('tagakubuKougiRegisterButton').disabled = false;
+            $('tagakubuKougiRegisterButton').style.color = 'black';  
+        } else {
+            $('tagakubuKougiRegisterButton').disabled = true;
+            $('tagakubuKougiRegisterButton').style.color = 'gray';
+        }
+    }
+
+    
+    
+    function tourokuTagakubuKougiFromFind(polling) {
+        if (!polling) {
+            
+            jq$("#findTagakubuKougiDialog").block({ message:"お待ちください..."}); 
+        }
+        
+        if (checkSinseiCountSemaphore()) {
+            setTimeout(function() {
+                tourokuTagakubuKougiFromFind(true);
+            }, 500);
+            return;
+        }
+        var requestURL = 'wrsytblu.do';
+        var split = false ;
+        for(i = 0; i < jq$("#resultSearchTagakubuKougiTableBody").children().length; i++){
+            if($('selectTagakubuKougiFromFind'+i).checked == true){
+                if (split == false) {
+                    $('selectTagakubuKougiFromFind').value = $('selectTagakubuKougiFromFind'+i).value;
+                    split = true ;
+                } else {
+                    $('selectTagakubuKougiFromFind').value += "," + $('selectTagakubuKougiFromFind'+i).value;
+                }
+            }
+        }
+
+        var param = {
+            'value(selectTagakubuKougiFromFind)' : $('selectTagakubuKougiFromFind').value,
+            'buttonName' : "tourokuTagakubuKougiFromFind"
+        };
+        ajaxRequest(requestURL, param, tourokuTagakubuKougi, "", null, true, true);
+    }
+
+    function tourokuTagakubuKougi(data) {
+        jq$("#findTagakubuKougiDialog").unblock();
+        jq$("#resultKougiListBody").empty().append(data);
+        
+        
+        if (false) {
+            findSinseiCount('kougiList', 'selectTagakubuKougiSinsei');
+        }
+
+        
+        $('selectKougiList').style.display = 'block';
+        $('tourokuKougiButton').style.display = 'block';
+        $('kougiMsg').innerHTML = "他学部講義を選択してください。";
+
+        if($('kougiMsg').innerHTML == '') {
+            $('kougiUnyuMsg').style.display = 'none';
+        }
+
+        
+        jq$("#kougiErrorMsg").empty();
+
+        $('tagakubuSearchDialogCloseButton').click();
+    }
+
+    
+    function enableFindTagakubuTab() {
+        $('findTagakubuTabHeader').className = 'active'; 
+        $('findTagakubuTab').style.display = 'block';
+        if (jq$("#resultSearchTagakubuKougiTableBody").children().length == 0) {
+            
+            $('resultTagakubuTabHeader').className = 'disable'; 
+        }else{
+            $('resultTagakubuTabHeader').className = '';
+        }
+        $('resultTagakubuTab').style.display = 'none';
+    }
+
+    
+    function enableResultTagakubuTab() {
+        $('findTagakubuTabHeader').className = ''; 
+        $('findTagakubuTab').style.display = 'none';
+        $('resultTagakubuTabHeader').className = 'active'; 
+        $('resultTagakubuTab').style.display = 'block';
+    }
+
+    function displaySearchMessage() {
+        $('searchMsg').style.display = 'block';
+        $('resultMsg').style.display = 'none';
+        $('noKougiListErrorMsg').style.display = 'none';
+        $('searchResultCountOver').style.display = 'none';
+    }
+
+    function displayResultMessage() {
+        $('searchMsg').style.display = 'none';
+        $('resultMsg').style.display = 'block';
+        $('noKougiListErrorMsg').style.display = 'none';
+        displayLimitCountMessage();
+    }
+
+    function displayNoResultMessage() {
+        $('searchMsg').style.display = 'none';
+        $('resultMsg').style.display = 'none';
+        $('noKougiListErrorMsg').style.display = 'block';
+        $('searchResultCountOver').style.display = 'none';
+    }
+
+    function displayLimitCountMessage() {
+        if(jq$("#resultSearchTagakubuKougiTableBody").children().length == 100) {
+            $('searchResultCountOver').style.display = 'block';
+        } else {
+            $('searchResultCountOver').style.display = 'none';
+        }
+    }
+
+    
+    function enableTagakubuKougiRegisterButton() {
+        $('tagakubuKougiRegisterButton').style.display = 'block';
+        $('tagakubuKougiRegisterButton').disabled = false;
+        changeTagakubuKougiCheckBox();
+    }
+
+    
+    function disableTagakubuKougiRegisterButton() {
+        $('tagakubuKougiRegisterButton').style.display = 'none';
+        $('tagakubuKougiRegisterButton').disabled = true;
+    }
+
+//-->
+</script>
+
+<div id="findTagakubuKougiDialog" style="display:none;">                                 
+  <div id="kougiSearch" class="contents_1" style="width: 860px; height:465px;">
+
+  <div class="caption" id="findTagakubuKougiDialogTitle" style="margin-bottom: 0px;">
+    <div class="back_r" id="pageTop"></div>
+
+    
+    <div class="caption" style="text-align:left;margin-left: 6px;margin-bottom: 13px;">
+    <span class="h3 line3">
+      2023年
+      
+        前期
+        
+      
+          
+    </span>
+    </div>
+
+    
+    <div id="searchMsg" class="caption" style="margin-top:0px;text-align:left;margin-left: 0px">
+      <span class="image" style="margin-top:0px; "></span>
+      <span class="h4 line4" style="line-height:2em">
+        他学部講義の検索条件を入力してください。
+      </span>
+    </div>   
+    <div id="noKougiListErrorMsg" class="caption" style="display:none; margin-top:0px;text-align:left;margin-left: 0px"> 
+      <span class="image" style="margin-top:0px; "></span>
+      <span class="h4 line4" >
+        指定された条件に該当する他学部講義はありません。
+      </span>
+    </div>
+    <div id="resultMsg" class="caption" style="margin-top:0px;text-align:left;margin-left: 0px"> 
+      <span class="image" style="margin-top:0px; "></span>
+      <span class="h4 line4" style="line-height:2em">
+        他学部講義を選択してください。
+      </span>
+    </div>
+    
+    <div id="searchResultCountOver" class="caption" style="margin-top:0px;text-align:left;margin-left: 0px">
+      <span class="image" style="margin-top:0px;"></span>
+      <span class="h4 line4" style="color:red;">
+        検索件数が最大件数を超えています。
+      </span>
+    </div>
+  </div>
+
+  
+  <div class="tabheader" style="width: 830px;margin-left:18px;height: 36px;"">
+    <table style="margin:0px;padding:0px;width:100%">
+      <tr>
+        <td style="text-align:left;vertical-align:bottom;width:20%">
+          <div id="tabnavigation_detail" style="margin-left: 0px;">
+            <ul style = "margin-bottom:-1px;">
+              
+              <li id="findTagakubuTabHeader" style="width:70px;height:33px;line-height:34px;" class="active" >
+                <a id="searchTagakubuCondition"  class="select" onclick="selectFindTagakubuTab(); return false;">検索条件</a>
+              </li>
+              
+              <li id="resultTagakubuTabHeader" style="border-left:none ;width:70px;height:33px;line-height:34px; text-align:center;" class="disable" >
+                <a id="resultTagakubuKougiList"  class="enable" onclick="selectResultTagakubuTab(); return false;">検索結果</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  
+  <div id="findTagakubuTab" class="contents_1" style="border:1px">   
+
+    <div class="contents_1" style="width: 830px; height: 270px">
+      <table class="form" style="width:812px; margin-top: 0px;margin-left: 20px;">
+        
+        <tr>
+          <td class="label" width="19%">曜日</td>
+          <td class="line_y_label"></td>
+          <td class="item">
+            <select name="value(findTagakubuYobi)" id="findTagakubuYobiBox" style="margin-left: 0px;"><option value=""></option>
+<option value="1">月曜日</option>
+<option value="2">火曜日</option>
+<option value="3">水曜日</option>
+<option value="4">木曜日</option>
+<option value="5">金曜日</option>
+<option value="6">土曜日</option>
+<option value="Z">その他</option></select>
+          </td>
+        </tr>
+        
+        <tr><td class="line_x" colspan="3"></td></tr>
+        <tr>
+          <td class="label" width="19%">時限</td>
+          <td class="line_y_label"></td>
+          <td class="item">
+            <select name="value(findTagakubuJigen)" id="findTagakubuJigenBox" style="margin-left: 0px;"><option value=""></option>
+<option value="1">1時限</option>
+<option value="2">2時限</option>
+<option value="3">3時限</option>
+<option value="4">4時限</option>
+<option value="5">5時限</option>
+<option value="6">6時限</option>
+<option value="7">7時限</option>
+<option value="Z">その他</option></select>
+          </td>
+        </tr>
+        
+        
+        <tr><td class="line_x" colspan="3"></td></tr>
+        <tr>
+          <td class="label" width="19%">講義名</td>
+          <td class="line_y_label"></td>
+          <td class="item">
+            <input type="text" name="value(findTagakubuKouginam)" maxlength="120" size="60" value="" id="findTagakubuKouginamTxt">
+            (部分一致)
+          </td>
+        </tr>
+        
+          
+          <tr><td class="line_x" colspan="3"></td></tr>
+          <tr>
+            <td class="label" width="19%">分野系列</td>
+            <td class="line_y_label"></td>
+            <td class="item"><select name="value(findTagakubuBunya)" style="margin-left: 0px;"  id="findTagakubuBunyaBox" >
+<option value=""></option>
+<option value="110000">教養教育科目</option>
+<option value="111100">Ａ系列</option>
+<option value="112100">Ｂ系列</option>
+<option value="113100">Ｃ系列</option>
+<option value="114100">Ｄ系列</option>
+<option value="115100">共通</option>
+<option value="130000">基礎科目</option>
+<option value="210000">外国語科目</option>
+<option value="211100">必修外国語科目</option>
+<option value="212100">選択外国語科目</option>
+<option value="213100">英語</option>
+<option value="214100">地域言語</option>
+<option value="215100">日本語</option>
+<option value="221100">外国語科目・必修</option>
+<option value="222100">外国語科目・選択</option>
+<option value="223100">英語</option>
+<option value="224100">地域言語</option>
+<option value="225100">日本語</option>
+<option value="250000">専門基礎科目</option>
+<option value="251100">英語</option>
+<option value="252100">数・物・化</option>
+<option value="310000">初期教育科目</option>
+<option value="410000">専門科目</option>
+<option value="411100">学部基礎科目</option>
+<option value="411200">コース基本科目</option>
+<option value="411300">学科基本科目</option>
+<option value="411400">関連科目</option>
+<option value="412100">基礎科目</option>
+<option value="412200">演習科目</option>
+<option value="412300">情報科目</option>
+<option value="412400">キャリア科目</option>
+<option value="412500">学科専門科目</option>
+<option value="413000">専門科目・必修</option>
+<option value="413100">専門科目・選択Ⅰ</option>
+<option value="413200">専門科目・選択Ⅱ</option>
+<option value="413300">専門科目・外国語</option>
+<option value="413400">専門科目・副専攻</option>
+<option value="413500">選択必修（外国語）</option>
+<option value="416100">専門共通科目</option>
+<option value="416200">コース専門科目</option>
+<option value="416300">専門関連科目</option>
+<option value="421100">学部基礎科目</option>
+<option value="421200">コース基本科目</option>
+<option value="421300">学科基本科目</option>
+<option value="421400">関連科目</option>
+<option value="422100">基礎科目</option>
+<option value="422200">演習科目</option>
+<option value="422300">情報科目</option>
+<option value="422400">キャリア科目</option>
+<option value="422500">学科専門科目</option>
+<option value="423400">副専攻科目</option>
+<option value="423500">選択必修（外国語）</option>
+<option value="426100">専門共通科目</option>
+<option value="426200">コース専門科目</option>
+<option value="426300">専門関連科目</option>
+<option value="510000">ゼミナール科目</option>
+<option value="560000">自由科目</option>
+<option value="590000">卒業要件外の科目</option>
+<option value="811100">商学系列</option>
+<option value="811200">経営学系列</option>
+<option value="811300">会計学系列</option>
+<option value="811400">法律学系列</option>
+<option value="811500">特別講義系列</option>
+<option value="811600">外国文献研究</option>
+<option value="812100">経済学系列</option>
+<option value="812200">国際政治経済系列</option>
+<option value="812300">地域経済系列</option>
+<option value="812400">実務系列</option>
+<option value="812500">外国語系列</option>
+<option value="813100">英語教育学</option>
+<option value="813200">言語学・英語学</option>
+<option value="813300">英語コミュニ学</option>
+<option value="813500">言語学・日本語学</option>
+<option value="813600">日本語教育</option>
+<option value="813700">日本文化・比較文化論</option>
+<option value="814100">経済開発分野</option>
+<option value="814200">地域研究分野 Ａ群</option>
+<option value="814300">地域研究分野 Ｂ群</option>
+<option value="815100">各分野共通科目</option>
+<option value="817100">安全保障・危機管理</option>
+<option value="817200">政治区分</option>
+<option value="817300">行政区分</option>
+<option value="817900">共通区分</option>
+<option value="821100">演習</option>
+<option value="821200">特別実験・特別演習</option>
+<option value="821300">特別演習</option>
+<option value="825100">講義科目</option>
+<option value="825200">演習科目</option>
+<option value="831100">応用力学分野</option>
+<option value="831200">ロボット・制御シス</option>
+<option value="831400">エネルギーシステム</option>
+<option value="831500">設計工学分野 </option>
+<option value="832100">信号処理・回路シス</option>
+<option value="832200">電子通信応用工学</option>
+<option value="832300">特別演習</option>
+<option value="833100">情報科学分野</option>
+<option value="833200">情報工学分野</option>
+<option value="834100">感性情報システム分野</option>
+<option value="834200">生活環境システム分野</option>
+<option value="835100">各分野共通</option>
+<option value="835300">他研究科科目</option>
+<option value="835400">他専攻科目</option>
+<option value="835500">その他の科目</option>
+<option value="841100">博士後期課程講義科目</option>
+<option value="841200">博士後期課程の科目</option>
+<option value="841300">博士前期課程の科目</option>
+<option value="841800">その他</option>
+<option value="252200">数・物・化・生</option>
+<option value="427100">専門共通科目</option>
+<option value="427200">コース専門科目</option>
+<option value="831300">応用力学・ロボット</option>
+<option value="842100">特別研究</option>
+<option value="842200">機械システム工学領域</option>
+<option value="842210">電子システム工学領域</option>
+<option value="842220">情報工学領域</option>
+<option value="842230">デザイン工学領域</option>
+<option value="842240">全分野共通</option>
+<option value="950000">受講科目</option>
+<option value="951310">英米語学科科目</option>
+<option value="951320">中国語学科科目</option>
+<option value="951330">スペイン語学科科目</option>
+<option value="951340">国際日本語学科科目</option>
+<option value="951500">工学部科目</option>
+<option value="951610">国際学科科目</option>
+</select></td>
+          </tr>
+          
+        
+          
+          <tr><td class="line_x" colspan="3"></td></tr>
+          <tr>
+            <td class="label" width="19%">担当教員</td>
+            <td class="line_y_label"></td>
+            <td class="item">
+              <input type="text" name="value(findTagakubuKyoin)" maxlength="40" size="40" value="" id="findTagakubuKyoinTxt">
+              (部分一致)
+            </td>
+          </tr>
+        
+      </table>
+
+    
+      <div class="function_bottom">
+        <table>
+        <tr><td style="width:30%;">
+        </td><td style="width:40%;text-align:center">
+          
+          <input type="button" class="close decorate" value="閉じる" />
+        </td><td style="width:30%;text-align:right;">
+          
+          <input type="button" class="search decorate" onclick="searchTagakubuKougi();" value="講義を検索する"  id="searchTagakubuKougiButton" />         
+        </td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  
+
+    <div id="resultTagakubuTab">
+        <div class="contents_1" style="width: 830px; height: 270px; margin-left: 20px; overflow-y:scroll;border: #777777 1px solid;">
+          <table class="list"  style="width: 812px; margin-top: 0px;overflow-y:scroll;">
+            <thead>
+              <tr class="label">
+                <td style="white-space:nowrap;text-align:center;">選択</td>
+                <td style="white-space:nowrap;text-align:center;">曜日時限</td>
+                
+                <td style="white-space:nowrap;text-align:center;">講義名</td>
+                
+                  <td style="white-space:nowrap;text-align:center;">分野系列</td>
+                
+                
+                <td style="white-space:nowrap;text-align:center;">単位</td>
+                
+                  <td style="white-space:nowrap;text-align:center;">担当教員</td>
+                
+                
+                  <td style="white-space:nowrap;text-align:center;">教室</td>
+                
+                
+                  <td style="white-space:nowrap;text-align:center;">キャンパス</td>
+                
+                
+                
+                <td style="white-space:nowrap;text-align:center;">情報</td>
+              </tr>
+            </thead>
+            <tbody id="resultSearchTagakubuKougiTableBody">
+            </tbody>
+          </table>
+        </div>
+        <div class="function_bottom">
+        <table>
+            <tr>
+              <td style="width:30%;"></td>
+              <td style="width:40%;text-align:center;padding-right:42px">
+                
+                <input type="button" class="close decorate"" value="閉じる" id = "tagakubuSearchDialogCloseButton"/>
+              </td>
+              <td style="width:30%;text-align:right;padding-left: 53px;">
+                
+                <input type="button" class="run decorate" onclick="return tourokuTagakubuKougiFromFind(false)" value="講義を選択する"  id="tagakubuKougiRegisterButton" />         
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<input type="hidden" name="value(findTagakubuYobi)" value="" id="findTagakubuYobi">
+<input type="hidden" name="value(findTagakubuJigen)" value="" id="findTagakubuJigen">
+<input type="hidden" name="value(findTagakubuKougicd)" value="" id="findTagakubuKougicd">
+<input type="hidden" name="value(findTagakubuKouginam)" value="" id="findTagakubuKouginam">
+<input type="hidden" name="value(findTagakubuBunya)" value="" id="findTagakubuBunya">
+<input type="hidden" name="value(findTagakubuKyoin)" value="" id="findTagakubuKyoin">
+<input type="hidden" name="values(selectTagakubuKougiFromFind)" value="" id="selectTagakubuKougiFromFind">
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+    jq$(function() {
+        $('searchResultCountOver').style.display = 'none';
+        if ('' == '他学部講義の検索条件を入力してください。') {
+            jq$("#searchMsg").empty();
+        }
+        if ('' == '他学部講義を選択してください。') {
+            jq$("#resultMsg").empty();
+        }
+    });
+
+
+//-->
+</script>
+
+
+  <input type="hidden" name="value(selectYobikn)" value="" id="selectYobikn">
+  <input type="hidden" name="value(selectJigenkn)" value="" id="selectJigenkn">
+  <input type="hidden" name="value(viewTsujyoFlag)" value="" id="viewTsujyoFlag">
+  <input type="hidden" name="value(viewSyutyuFlag)" value="" id="viewSyutyuFlag">
+  <input type="hidden" name="value(viewTagakubuFlag)" value="" id="viewTagakubuFlag">
+  <input type="hidden" name="value(errorCheckSkip)" value="" id="errorCheckSkip">
+
+  <input type="hidden" value="dummy" name="dummy" id="selectButtonName"/>
+
+</form>
+
+
+<script type="text/javascript">
+<!--
+jq$(function() {
+  jq$(".jikanwari_koma").mouseover(function() {
+    jq$(this).css("cursor","pointer");
+  });
+});
+
+//-->
+</script>
+
+</td>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td id="sub1">
+  <div id="navigation">
+   
+    
+    <div id="login_inf">
+      <div class="top"></div>
+      <div class="mid">
+      
+        <ul class="date">
+          <li class="label"></li>
+          <li class="item">
+            
+            2023年4月6日
+            
+          </li>
+          <li class="item">
+            
+            9時15分
+            
+          </li>
+        </ul>
+        <ul class="user">
+          <li class="label"></li>
+        
+          <li class="item">G384472023</li>
+        
+          <li class="item">澤田　歩</li>
+        
+        </ul>
+
+      </div>
+      <div class="under"></div>
+    </div>
+   
+   
+
+  
+  
+    <div id="side_menu">
+      <div class="top"></div>
+        <div id="slide">
+          <input type="button" class="button" />
+        </div>
+      <div class="mid" id="sideMenuMiddle">
+        
+          
+            
+          
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+    <li class="label">履修登録</li>
+    
+      
+      
+      
+      
+        
+        
+        
+        
+            <li class="item">
+              <a title="履修登録" href="
+                wrsytblu.do?clearAccessData=true&contenam=wrsytblu&kjnmnNo=23
+                ">履修登録
+              </a>
+            </li>
+        
+      
+    
+  </ul>
+
+        
+          
+            
+          
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+    <li class="label">履修取り消し</li>
+    
+      
+      
+        <li class="item">
+          <a href="#" style="cursor:default">[使用期間外]履修取り消し申請</a>
+        </li>
+      
+      
+      
+    
+  </ul>
+
+        
+          
+            
+          
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+    <li class="label">試験時間割</li>
+    
+      
+      
+        <li class="item">
+          <a href="#" style="cursor:default">[使用期間外]追・再試験 時間割</a>
+        </li>
+      
+      
+      
+    
+  </ul>
+
+        
+          
+            
+          
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+    <li class="label">成績照会</li>
+    
+      
+      
+      
+      
+        
+        
+        
+        
+            <li class="item">
+              <a title="学業成績表照会" href="
+                wssrgskr999.do?clearAccessData=true&contenam=wssrgskr999&kjnmnNo=30
+                ">学業成績表照会
+              </a>
+            </li>
+        
+      
+    
+      
+      
+        <li class="item">
+          <a href="#" style="cursor:default">[使用期間外]進級卒業発表照会</a>
+        </li>
+      
+      
+      
+    
+  </ul>
+
+        
+        
+        
+      </div>
+      <div class="under"></div>
+    </div>
+  
+  </div>
+  <div id="dummy"></div>
+  <br class="clear" />
+</td>
+
+    </tr>
+  </table>
+</div>
+
+<p id="pageTopButton">
+  <a href="#wrap" id="pageTopLink">PAGE TOP</a>
+</p>
+
+
+
+
+
+<script type="text/javascript">
+
+jQuery(function(){
+  target = document.getElementById("copyright");
+  target.innerHTML = "　";
+
+});
+
+</script>
+
+  <noscript><c:out value="JavaScriptを使用できる環境でご利用ください。" /></noscript>
+  <div id="footer">
+    <div class="text" id="copyright"/>
+  </div>
+
+</div>
+</body>
+</html>
+
